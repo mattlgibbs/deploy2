@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Show User</title>
+</head>
+
+<body>
+
+<!-- show single instance of user -->
+    <p>
+        {{player.name}} {{player.gold}}
+    </p>
+<!-- loop through users and grab all logs of specific user -->
+    {% for log in player.User_Id.all %}
+    <p>
+        {{log.content}} {{log.created_at}}
+    </p>
+    {% endfor %}
+
+
+
+
+
+</body>
+
+</html>

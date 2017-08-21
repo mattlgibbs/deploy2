@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Welcome</title>
+</head>
+
+<body>
+
+    <h2>Welcome, {{request.session.name}} | <a href="/logout">Logout</a></h2>
+
+    <h4><a href="/play_game">Play</a> | <a href="/all_users">All Users</a></h4>
+    <table style="margin: auto; width:40%; border: 1px solid black; padding: 5px; text-align: left;">
+        <caption>Top 5 Players:</caption>
+        <tr>
+            <th style="border: 1px solid black; padding: 5px; text-align: left;">Name</th>
+            <th style="border: 1px solid black; padding: 5px; text-align: left;">Gold</th>
+        </tr>
+
+        {% for player in user %}
+        <tr>
+            <td style="border: 1px solid black; padding: 5px; text-align: left;">{{player.name}}</td>
+            <td style="border: 1px solid black; padding: 5px; text-align: left;">{{player.gold}}</td>
+
+        </tr>
+        {%endfor%}
+    </table>
+
+</body>
+
+</html>

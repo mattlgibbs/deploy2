@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <p>Your Gold: {{user.gold}}</p>
+
+        <div style="outline: solid black; height: 200px; width: 200px; display: inline-block; margin-right: 20px;">
+            <form action="/process" method="post">
+                {% csrf_token %}
+                <input type='hidden' name='building' value="cave">
+                <input type="submit" value="Go to cave">
+            </form>
+        </div>
+
+        <div style="outline: solid black; height: 200px; width: 200px; display: inline-block; margin-right: 20px;">
+            <form action="/process" method="post">
+                {% csrf_token %}
+                <input type='hidden' name='building' value="house">
+                <input type="submit" value="Go to house">
+            </form>
+        </div>
+
+        <div style="outline: solid black; height: 200px; width: 200px; display: inline-block; margin-right: 20px;">
+            <form action="/process" method="post">
+                {% csrf_token %}
+                <input type='hidden' name='building' value="farm">
+                <input type="submit" value="Go to farm">
+            </form>
+        </div>
+
+
+<br><br>
+        <div style="outline: solid black; height: 400px; width: 650px;">
+            {% for log in user.User_Id.all %}
+
+                <p>{{log.content}}</p>
+            {%endfor%}
+        </div>
+
+        <br>
+        <div> <a href="/clear"><button>Clear Session</button></a> </div>
+
+    </body>
+</html>
